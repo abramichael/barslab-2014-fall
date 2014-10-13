@@ -27,4 +27,11 @@ class Lesson(models.Model):
     klass = models.ForeignKey(Klass)
     year = models.PositiveSmallIntegerField()
     def __str__(self):
-        return ":".join([self.klass.name, self.teacher.name, self.student.name])
+        return " : ".join([self.klass.name, self.teacher.name, self.student.name, str(self.year)])
+
+class Team(models.Model):
+    name = models.TextField()
+    scored = models.PositiveSmallIntegerField()
+    missed = models.PositiveSmallIntegerField()
+    def __str__(self):
+        return " : ".join([self.name, str(self.scored), str(self.missed)])
